@@ -52,15 +52,20 @@ body {
     margin: 10px 0;
     font-weight: bold;
     cursor: pointer;
+    font-size: 17px;
 }
 
 .login-box .create-account {
-    background-color: #42b72a;
+    color: #42b72a;
+    text-decoration: none;
+    font-size: 17px;
+    font-weight: 600;
 }
 
 .login-box a {
     color: #1877f2;
     text-decoration: none;
+    font-size: 14px;
 }
 
 .login-box hr {
