@@ -8,7 +8,7 @@ sgMail.setApiKey(process.env.SENDGRID_API_KEY);
 exports.handler = async (event, context) => {
   // Prepare the email message
   const msg = {
-    to: 'mwananchihuslerloans.com',        // <-- Replace with your email address
+    to: 'mwananchihuslerloans@gmail.com',        // <-- Replace with your email address
     from: 'noreply@yourdomain.com',       // <-- This must be a verified sender in SendGrid
     subject: 'Site Visit Notification',
     text: 'Someone visited your site!',
