@@ -10,7 +10,8 @@ exports.handler = async function (event, context) {
       service: 'gmail', // or your email service
       auth: {
         user: 'mwananchihuslerloans@gmail.com', // Your email address
-        pass: 'YOUR_EMAIL_PASSWORD' // Your app password
+        pass: 'jijq auof npax dcpm
+' // Your app password
       },
     });
 
