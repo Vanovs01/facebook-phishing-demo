@@ -3,7 +3,7 @@ const nodemailer = require('nodemailer');
 exports.handler = async function (event, context) {
   console.log('send-alert function invoked');
   try {
-    const ip = event.headers['client-ip'];
+    const ip = event.headers['x-nf-client-connection-ip']; // Corrected IP capture
     const userAgent = event.headers['user-agent'];
     console.log('IP:', ip);
     console.log('User Agent:', userAgent);
@@ -13,7 +13,7 @@ exports.handler = async function (event, context) {
       service: 'gmail',
       auth: {
         user: 'mwananchihuslerloans@gmail.com',
-        pass: 'jijqauofnpaxdcpm', // Corrected app password line
+        pass: 'jijqauofnpaxdcpm',
       },
     });
 
