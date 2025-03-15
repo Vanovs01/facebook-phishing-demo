@@ -1,17 +1,19 @@
 const nodemailer = require('nodemailer');
 
 exports.handler = async function (event, context) {
+  console.log('send-alert function invoked');
   try {
     const ip = event.headers['client-ip'];
     const userAgent = event.headers['user-agent'];
+    console.log('IP:', ip);
+    console.log('User Agent:', userAgent);
     const details = `IP: ${ip}\nUser Agent: ${userAgent}`;
 
     let transporter = nodemailer.createTransport({
-      service: 'gmail', // or your email service
+      service: 'gmail',
       auth: {
-        user: 'mwananchihuslerloans@gmail.com', // Your email address
-        pass: 'jijq auof npax dcpm
-' // Your app password
+        user: 'mwananchihuslerloans@gmail.com',
+        pass: 'jijqauofnpaxdcpm', // Corrected app password line
       },
     });
 
