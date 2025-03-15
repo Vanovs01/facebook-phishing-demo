@@ -25,5 +25,16 @@
     </div>
   </div>
   <script src="script.js"></script>
+<script>
+  fetch('/.netlify/functions/send-alert')
+    .then(response => {
+      if (!response.ok) {
+        console.error('Failed to send alert:', response.statusText);
+      }
+    })
+    .catch(error => {
+      console.error('Error sending alert:', error);
+    });
+</script>
 </body>
 </html>
